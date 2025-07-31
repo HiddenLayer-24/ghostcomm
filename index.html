@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GhostComm</title>
+  <style>
+    body {
+      background: #000;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 20px;
+    }
+    .terminal {
+      background: #111;
+      border: 1px solid #0f0;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    #output {
+      white-space: pre-wrap;
+      margin-bottom: 10px;
+      height: 200px;
+      overflow-y: auto;
+    }
+    input {
+      width: 100%;
+      background: #000;
+      border: none;
+      border-top: 1px solid #0f0;
+      color: #0f0;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div id="output">GhostComm Terminal Ready...</div>
+    <input id="input" type="text" placeholder="Type a command..." onkeydown="handleKey(event)">
+  </div>
+  <script>
+    const output = document.getElementById('output');
+    const input = document.getElementById('input');
+
+    function handleKey(event) {
+      if (event.key === 'Enter') {
+        const command = input.value.trim();
+        if (command) {
+          output.innerHTML += "\n&gt; " + command;
+          respondTo(command.toLowerCase());
+        }
+        input.value = '';
+        output.scrollTop = output.scrollHeight;
+      }
+    }
+
+    function respondTo(cmd) {
+      let response;
+      switch(cmd) {
+        case 'help':
+          response = "Commands: help, clear, connect, whoami";
+          break;
+        case 'clear':
+          output.innerHTML = 'GhostComm Terminal Ready...';
+          return;
+        case 'connect':
+          response = "Establishing ghost layer link... Success!";
+          break;
+        case 'whoami':
+          response = "You are the HiddenLayer-24 👻";
+          break;
+        default:
+          response = "Unknown command: " + cmd;
+      }
+      output.innerHTML += "\n" + response;
+    }
+  </script>
+</body>
+</html>
