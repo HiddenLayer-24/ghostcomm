@@ -2,31 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GhostComm UI v1</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GhostComm</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Courier New', monospace;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      overflow: hidden;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      height: 100%;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .widget-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .widget {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .widget:hover {
+      background-color: #21262d;
+    }
+
+    @media (max-width: 600px) {
+      .widget-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .widget {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="screen">
-    <div class="column left">
-      <div class="icon-group">
-        <div class="icon flutter"></div>
-        <div class="icon agentic"></div>
-      </div>
-      <div class="module menu"></div>
-      <div class="icon image"></div>
-    </div>
-    <div class="center">
-      <div class="title">GhostComm Dashboard</div>
-      <div class="main"></div>
-      <div class="footer">
-        <input class="search" type="text" placeholder="Search..." />
-        <div class="chat-icon">...</div>
-      </div>
-    </div>
-    <div class="column right">
-      <div class="video-control"></div>
-      <div class="map-path"></div>
+  <div id="app">
+    <h1>GhostComm</h1>
+    <div class="widget-container">
+      <div class="widget">RUN</div>
+      <div class="widget">W/L Logs</div>
+      <div class="widget">AI Profiler</div>
+      <div class="widget">Support</div>
+      <div class="widget">Suggest</div>
+      <div class="widget">Export Hub</div>
     </div>
   </div>
 </body>
