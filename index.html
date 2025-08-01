@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GhostComm</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GhostComm UI v1</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="terminal">
-    <h1>GhostComm</h1>
-    <textarea id="chat" placeholder="Enter your message..."></textarea>
+  <div class="screen">
+    <div class="column left">
+      <div class="icon-group">
+        <div class="icon flutter"></div>
+        <div class="icon agentic"></div>
+      </div>
+      <div class="module menu"></div>
+      <div class="icon image"></div>
+    </div>
+    <div class="center">
+      <div class="title">GhostComm Dashboard</div>
+      <div class="main"></div>
+      <div class="footer">
+        <input class="search" type="text" placeholder="Search..." />
+        <div class="chat-icon">...</div>
+      </div>
+    </div>
+    <div class="column right">
+      <div class="video-control"></div>
+      <div class="map-path"></div>
+    </div>
   </div>
 </body>
 </html>
